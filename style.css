@@ -15,16 +15,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 60px;
-    line-height: 50px;
+    font-size: 120px;
+    line-height: 110px;
     white-space: nowrap;
     border-top: 5px solid black;
 }
 #title1::before{
-    content: 'is awasone';
+    content: 'Proyecto Final';
     position: absolute;
     bottom: -70px;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     width: 100%;
 }
