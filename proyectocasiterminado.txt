@@ -1,0 +1,110 @@
+body{
+    overflow: hidden;
+    background: gray;
+}
+#canvas1{
+    /*position: absolute;*/
+   border: 1px solid black;
+    background: white;
+    top: 0;
+    left: 0;
+}
+#colorpicker{
+    appearance: auto;
+    width: 50px;
+    height: 27px;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    color: -internal-light-dark(black, white);
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding: 1px 2px;
+}
+--------------------------------------------------------
+
+const canvas = document.getElementById('canvas1');
+const ctx = canvas.getContext('2d');
+
+ctx.globalCompositeOperation = 'destination-over';
+
+let number = 0;
+let scale = 10;
+let numeroAg = 137;
+let lineWich = 4;
+let numeroVl = 10;
+let colorFill = "black";
+let colorStroke = "red";
+
+
+function drawFlower(){
+    let angle = number * numeroAg;
+    let radious = scale * Math.sqrt(number);
+    let positionX = radious * Math.sin(angle) + 250;
+    let positionY = radious * Math.cos(angle) + 250;
+
+   
+    ctx.fillStyle = colorFill;
+    ctx.strokeStyle = colorStroke;
+    ctx.lineWidth = lineWich;
+    ctx.beginPath();
+    ctx.arc(positionX, positionY, numeroVl, 0, Math.PI*2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    number++;
+    console.log(number);
+}
+
+function animate(){
+    //draw each frame
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawFlower();
+    if (number > 400) return;
+    requestAnimationFrame(animate);
+}
+
+function borrarCanvas(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);//borramos el canvas para volver a dibujar
+    number = 0;/*restablecer el valor de la variable numer es muy importante, ya que si no se hace continua con incremento,
+    lo que lleva seguir dibujando despues del valor 401,pero como tenemos un if que solo nos deja dibujar hasta 401 al querer 
+    dibujar de nuevo se dibuja circulo por circulo por la condicion (se continua 402, 403, ... n) y el clearRect pareciera que no funcionara.
+    Entonces al restablecer la variable number a 0 esto permite dibujar de nuevo otra vez. Estuve medio dia con este error, usando diversos 
+    metodos para borrar un canvas y el probema era la variable number que funciona como contador*/
+    }
+
+document.getElementById("op-dibujar").addEventListener('click', animate, false);
+document.getElementById("op-borrar").addEventListener('click', borrarCanvas, false);
+------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Procesamiento de Imagenes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <canvas id="canvas1" width="500" height="500"></canvas>
+            <div id="contenidos">
+                <button id="op-dibujar" type="button">Iniciar Dibujo</button>
+                <button id="op-borrar" type="button">Borrar Dibujo</button>
+            </div>
+            <div id="disenio">
+                <input type="color" id="colorpicker" oninput="colorFill = this.value">
+                <input type="color" id="colorpickerdos" oninput="colorStroke = this.value">
+                <input type="number" id="numerotype" oninput="scale = this.value">
+                <input type="number" id="numerotypedos" oninput="numeroAg = this.value">
+                <input type="number" id="numerotypetres" oninput="linewich = this.value">
+                <input type="number" id="numerotypecuatro" oninput="numeroVl = this.value">
+            </div>
+    </div>
+       <script src="script.js"></script>
+   </body>
+</html>

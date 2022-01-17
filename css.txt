@@ -1,0 +1,108 @@
+body{
+    overflow: hidden;
+    background: gray;
+    width: 100%;
+    height: 100%;
+}
+#canvasdb{
+    background-color: lawngreen;
+    width: 50%;
+    height: 550px;
+}
+#canvas1{
+    border: 2px solid black;
+    border-radius: 5px;
+    background: white;
+    outline: 1px red solid;
+    top: 0;
+    left: 0;
+}
+#colorpicker{
+    appearance: auto;
+    width: 50px;
+    height: 27px;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    color: -internal-light-dark(black, white);
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding: 1px 2px;
+}
+#contenidos{
+    background: blanchedalmond;
+    height: 65px;
+    width: 50%;
+    
+}
+
+.btn-dib{
+    width: 100px;
+    height: 35px;
+    border: 2px black solid;
+    border-radius: 5px;
+    outline: 1px red solid;
+
+}
+.btn-bor{
+    width: 100px;
+    height: 35px;
+    border: 2px black solid;
+    border-radius: 5px;
+    outline: 1px red solid;
+
+}
+#disenio{
+    background: ivory;
+    height: 80px;
+    width: 70%;
+}
+.texto{
+    text-align: center;
+    text-shadow: 3px 5px 5px red;
+    font-size: 20px;
+    font-family: 'Inconsolata', Tahoma;
+}
+
+----------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Procesamiento de Imagenes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <div id="contenedor-dos">
+            <div id="canvasdb">
+                <canvas id="canvas1" width="500" height="500"></canvas>
+            </div>
+            
+            <div id="contenidos">
+                <button id="op-dibujar" class="btn-dib" type="button">Iniciar Dibujo</button>
+                <button id="op-borrar" class="btn-bor" type="button">Borrar Dibujo</button>
+            </div>
+        </div>
+        <div id="contenedor-tres">
+            <div id="disenio">
+                <p class="texto">Crea tu propio diseño</p>
+                <input type="color" id="colorpicker" oninput="colorFill = this.value">
+                <input type="color" id="colorpickerdos" oninput="colorStroke = this.value">
+                <input type="number" id="numerotype" oninput="scale = this.value">
+                <input type="number" id="numerotypedos" oninput="numeroAg = this.value">
+                <input type="number" id="numerotypetres" oninput="linewich = this.value">
+                <input type="number" id="numerotypecuatro" oninput="numeroVl = this.value">
+            </div>
+        </div>
+    </div>
+       <script src="script.js"></script>
+   </body>
+</html>
