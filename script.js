@@ -1,4 +1,4 @@
-/*const canvas = document.getElementById('canvas1');
+const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -73,7 +73,7 @@ function animate(){
     particle1.draw();
     particle2.update();
     particle2.draw();*/
-    /*for( let i = 0; i < particlesArray.length; i++){
+    for( let i = 0; i < particlesArray.length; i++){
         particlesArray[i].update();
         particlesArray[i].draw();  
     }
@@ -92,4 +92,4 @@ window.addEventListener('resize', function(){
         height: 10
     }
     init();
-});*/
+});
