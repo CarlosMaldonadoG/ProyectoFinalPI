@@ -9,6 +9,7 @@ export class Particle {
     protected ctx: CanvasRenderingContext2D;
     protected _2PI: number;
     
+
     constructor(width: number, height: number, x: number, y: number, screenCanvas?: CanvasRenderingContext2D) {
       this.ctx = screenCanvas;
       this.width = width;

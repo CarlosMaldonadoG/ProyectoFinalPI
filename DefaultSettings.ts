@@ -1,5 +1,5 @@
 export const DefaultSettings = {
-    SIZE_WIDTH : 500,
-    SIZE_HEIGHT : 500,
+    SIZE_WIDTH : innerWidth,
+    SIZE_HEIGHT : innerHeight,
 }
   

@@ -12,12 +12,21 @@ let particlesArray: Particle[];
 particlesArray = new Array(0);
 const numerOfParticles = 300;
 
+let titleElement = document.getElementById('title1');
+let titleMeasurements = titleElement.getBoundingClientRect();
+let title = {
+    x: titleMeasurements.left,
+    y: titleMeasurements.top,
+    width: titleMeasurements.width,
+    height: 10
+}
+
 function init(){
     particlesArray = [];
     for(let i = 0; i < numerOfParticles; i++){
         const x = Math.random() * lienzo1.width;
         const y = Math.random() * lienzo1.height;
-        particlesArray.push(new Particle(x, y));
+        particlesArray.push(new Particle(lienzo1.width, lienzo1.height, x, y, ctx));
     }
 }
 function animate(){
@@ -29,3 +38,16 @@ function animate(){
     }
     requestAnimationFrame(animate);
 }
+
+window.addEventListener('resize', function(){
+    lienzo1.width = DefaultSettings.SIZE_WIDTH;
+    lienzo1.height = DefaultSettings.SIZE_HEIGHT;
+    titleMeasurements = titleElement.getBoundingClientRect();
+    title = {
+        x: titleMeasurements.left,
+        y: titleMeasurements.top,
+        width: titleMeasurements.width,
+        height: 10
+    }
+    init();
+});
