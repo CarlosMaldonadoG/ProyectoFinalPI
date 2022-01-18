@@ -1,4 +1,4 @@
-import { Particle } from "./particle.js";
+/*import { Particle } from "./particle.js";
 import { DefaultSettings } from "./DefaultSettings.js";
 
 let lienzo1: HTMLCanvasElement;
@@ -9,20 +9,42 @@ ctx = lienzo1.getContext("2d");
 lienzo1.width = DefaultSettings.SIZE_WIDTH;
 lienzo1.height = DefaultSettings.SIZE_HEIGHT;
 let particlesArray: Particle[];
-particlesArray = new Array(0);
-const numerOfParticles = 300;
+//particlesArray = new Array(0);
+const numerOfParticles = 300;*/
 
-let titleElement = document.getElementById('title1');
+/*let titleElement = document.getElementById('title1');
 let titleMeasurements = titleElement.getBoundingClientRect();
 let title = {
     x: titleMeasurements.left,
     y: titleMeasurements.top,
     width: titleMeasurements.width,
     height: 10
+}*/
+//let planet = new Object();
+
+/*interface Planeta{
+    nombre: string;
+    galaxia: string;
+    numeroDeLunas: number;
+    peso: number;
 }
 
+let planet: Planeta = {
+    nombre: "Tierra",
+    galaxia: "Galaxia Sur",
+    numeroDeLunas: 1,
+    peso: 10000
+};
+
+console.log("Nombre de planeta: " + planet.nombre);
+console.log("Nombre de galaxia: " + planet.galaxia);
+console.log("Nombre de lunas: " + planet.numeroDeLunas);
+console.log("Peso: " + planet.peso);
+*/
+
+/*
 function init(){
-    particlesArray = [];
+    particlesArray = new Array(0);
     for(let i = 0; i < numerOfParticles; i++){
         const x = Math.random() * lienzo1.width;
         const y = Math.random() * lienzo1.height;
@@ -50,4 +72,4 @@ window.addEventListener('resize', function(){
         height: 10
     }
     init();
-});
+});*/

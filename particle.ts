@@ -1,4 +1,4 @@
-export class Particle {
+/*export class Particle {
     protected x: number;
     protected y: number;
     protected width: number;
@@ -8,9 +8,9 @@ export class Particle {
     protected directionX = -2;
     protected ctx: CanvasRenderingContext2D;
     protected _2PI: number;
-    
+    protected title: object;
 
-    constructor(width: number, height: number, x: number, y: number, screenCanvas?: CanvasRenderingContext2D) {
+    constructor(width: number, height: number, x: number, y: number, title : object, screenCanvas?: CanvasRenderingContext2D) {
       this.ctx = screenCanvas;
       this.width = width;
       this.height = height;
@@ -20,6 +20,7 @@ export class Particle {
       this.weight = Math.random() * 1 +1;
       this.directionX = (Math.random() * 2) -1;;
       this._2PI = Math.PI * 2;
+      this.title = title;
     }
   
     public update() {
@@ -34,7 +35,7 @@ export class Particle {
         
         //verifique la colisión entre cada partícula y el elemento del título
         if(
-            this.x < title.x + title.width &&
+            this.x < this.title.(this.x) + title.width &&
             this.x + this.size > title.x &&
             this.y < title.y + title.height &&
             this.y + this.size > title.y
@@ -53,4 +54,4 @@ export class Particle {
  
     }
   
-  }
+  }*/
