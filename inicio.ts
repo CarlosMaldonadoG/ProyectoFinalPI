@@ -1,75 +1,35 @@
-/*import { Particle } from "./particle.js";
-import { DefaultSettings } from "./DefaultSettings.js";
-
-let lienzo1: HTMLCanvasElement;
+import { Particle } from "./particle.js";
+let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 
-lienzo1 = <HTMLCanvasElement>document.getElementById('canvas1');
-ctx = lienzo1.getContext("2d");
-lienzo1.width = DefaultSettings.SIZE_WIDTH;
-lienzo1.height = DefaultSettings.SIZE_HEIGHT;
+canvas = <HTMLCanvasElement>document.getElementById('canvas1');
+ctx = canvas.getContext("2d");
+
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
 let particlesArray: Particle[];
-//particlesArray = new Array(0);
-const numerOfParticles = 300;*/
+const numerOfParticles = 300;
 
-/*let titleElement = document.getElementById('title1');
-let titleMeasurements = titleElement.getBoundingClientRect();
-let title = {
-    x: titleMeasurements.left,
-    y: titleMeasurements.top,
-    width: titleMeasurements.width,
-    height: 10
-}*/
-//let planet = new Object();
-
-/*interface Planeta{
-    nombre: string;
-    galaxia: string;
-    numeroDeLunas: number;
-    peso: number;
-}
-
-let planet: Planeta = {
-    nombre: "Tierra",
-    galaxia: "Galaxia Sur",
-    numeroDeLunas: 1,
-    peso: 10000
-};
-
-console.log("Nombre de planeta: " + planet.nombre);
-console.log("Nombre de galaxia: " + planet.galaxia);
-console.log("Nombre de lunas: " + planet.numeroDeLunas);
-console.log("Peso: " + planet.peso);
-*/
-
-/*
 function init(){
     particlesArray = new Array(0);
     for(let i = 0; i < numerOfParticles; i++){
-        const x = Math.random() * lienzo1.width;
-        const y = Math.random() * lienzo1.height;
-        particlesArray.push(new Particle(lienzo1.width, lienzo1.height, x, y, ctx));
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y, canvas.width, canvas.height, ctx));
+        //particlesArray.push(new Particle(x, y));
     }
 }
+init();
+
 function animate(){
     ctx.fillStyle = 'rgba(255, 255, 255, 0.01';
-    ctx.fillRect(0, 0, lienzo1.width, lienzo1.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     for( let i = 0; i < particlesArray.length; i++){
         particlesArray[i].update();
         particlesArray[i].draw();  
     }
     requestAnimationFrame(animate);
 }
+animate();
 
-window.addEventListener('resize', function(){
-    lienzo1.width = DefaultSettings.SIZE_WIDTH;
-    lienzo1.height = DefaultSettings.SIZE_HEIGHT;
-    titleMeasurements = titleElement.getBoundingClientRect();
-    title = {
-        x: titleMeasurements.left,
-        y: titleMeasurements.top,
-        width: titleMeasurements.width,
-        height: 10
-    }
-    init();
-});*/
