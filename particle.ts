@@ -27,6 +27,7 @@ export class Particle {
             this.size = Math.random() * 15 + 1;
             this.weight = Math.random() * 1 + 1;
             this.directionX = (Math.random() * 2) -1;
+            this._2PI = Math.PI * 2;
         }
   
         public update(){
@@ -53,8 +54,8 @@ export class Particle {
         public draw(){
             this.ctx.fillStyle = 'purple';
             this.ctx.beginPath();
-            this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            this.ctx.arc(this.x, this.y, this.size, 0, this._2PI);
             this.ctx.closePath();
-            this.ctx.fill(); //sin punto y coma lo dejo en el video
+            this.ctx.fill(); 
         }
 }

@@ -6,7 +6,7 @@ ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 var particlesArray;
-var numerOfParticles = 300;
+var numerOfParticles = 400;
 var titleElement = document.getElementById('title1');
 var titleMeasurements = titleElement.getBoundingClientRect();
 var title = {
@@ -21,7 +21,6 @@ function init() {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
         particlesArray.push(new Particle(x, y, canvas.width, canvas.height, ctx, title.x, title.y, title.width, title.height));
-        //particlesArray.push(new Particle(x, y));
     }
 }
 init();
@@ -35,3 +34,15 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+window.addEventListener('resize', function () {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    titleMeasurements = titleElement.getBoundingClientRect();
+    title = {
+        x: titleMeasurements.left,
+        y: titleMeasurements.top,
+        width: titleMeasurements.width,
+        height: 10
+    };
+    init();
+});
