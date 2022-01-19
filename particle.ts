@@ -8,15 +8,22 @@ export class Particle {
     protected _2PI: number;
     protected directionX: number;
     protected ctx: CanvasRenderingContext2D;
-    
+    protected titleX: number;
+    protected titleY: number;
+    protected titleW: number;
+    protected titleH: number;
    
-        constructor(x : number , y: number, width: number, height: number, 
-          screenCanvas: CanvasRenderingContext2D){
+        constructor(x : number , y: number, width: number, height: number, screenCanvas: CanvasRenderingContext2D, 
+          titleX : number, titleY : number, titleW : number, titleH : number){
             this.width = width;
             this.height = height;
             this.ctx = screenCanvas;
             this.x = x;
             this.y = y;
+            this.titleX = titleX;
+            this.titleY = titleY;
+            this.titleW = titleW;
+            this.titleH = titleH;
             this.size = Math.random() * 15 + 1;
             this.weight = Math.random() * 1 + 1;
             this.directionX = (Math.random() * 2) -1;
@@ -31,13 +38,13 @@ export class Particle {
             this.weight += 0.01;
             this.y += this.weight;
             this.x += this.directionX;
-            
+
             //verifique la colisión entre cada partícula y el elemento del título
             if(
-                this.x < 59.25 + 1417.5 &&
-                this.x + this.size > 59.25 &&
-                this.y < 303.3000183105469 + 10 &&
-                this.y + this.size > 303.3000183105469
+                this.x < this.titleX + this.titleW &&
+                this.x + this.size > this.titleX &&
+                this.y < this.titleY + this.titleH &&
+                this.y + this.size > this.titleY
             ){
                 this.y -= 3;
                 this.weight *= -0.3;

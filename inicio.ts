@@ -11,12 +11,27 @@ canvas.height = innerHeight;
 let particlesArray: Particle[];
 const numerOfParticles = 300;
 
+let titleElement = document.getElementById('title1');
+let titleMeasurements = titleElement.getBoundingClientRect();
+interface Titulo{
+    x: number,
+    y: number,
+    width: number,
+    height: number
+}
+let title: Titulo = {
+    x: titleMeasurements.left,
+    y: titleMeasurements.top,
+    width: titleMeasurements.width,
+    height: 10
+}
+
 function init(){
     particlesArray = new Array(0);
     for(let i = 0; i < numerOfParticles; i++){
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        particlesArray.push(new Particle(x, y, canvas.width, canvas.height, ctx));
+        particlesArray.push(new Particle(x, y, canvas.width, canvas.height, ctx, title.x, title.y, title.width, title.height));
         //particlesArray.push(new Particle(x, y));
     }
 }

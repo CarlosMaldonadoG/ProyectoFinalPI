@@ -1,10 +1,14 @@
 var Particle = /** @class */ (function () {
-    function Particle(x, y, width, height, screenCanvas) {
+    function Particle(x, y, width, height, screenCanvas, titleX, titleY, titleW, titleH) {
         this.width = width;
         this.height = height;
         this.ctx = screenCanvas;
         this.x = x;
         this.y = y;
+        this.titleX = titleX;
+        this.titleY = titleY;
+        this.titleW = titleW;
+        this.titleH = titleH;
         this.size = Math.random() * 15 + 1;
         this.weight = Math.random() * 1 + 1;
         this.directionX = (Math.random() * 2) - 1;
@@ -19,10 +23,10 @@ var Particle = /** @class */ (function () {
         this.y += this.weight;
         this.x += this.directionX;
         //verifique la colisión entre cada partícula y el elemento del título
-        if (this.x < 59.25 + 1417.5 &&
-            this.x + this.size > 59.25 &&
-            this.y < 303.3000183105469 + 10 &&
-            this.y + this.size > 303.3000183105469) {
+        if (this.x < this.titleX + this.titleW &&
+            this.x + this.size > this.titleX &&
+            this.y < this.titleY + this.titleH &&
+            this.y + this.size > this.titleY) {
             this.y -= 3;
             this.weight *= -0.3;
         }
